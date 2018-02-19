@@ -16,7 +16,11 @@ namespace Vidly.Controllers
             {
                 Name = "Lord of The Rings"
             };
-            return View(movie);
+            //return View(movie);
+            //return Content("Hello world is old now. It's time for wass'up bro !!!");
+            //return HttpNotFound();
+            //return new EmptyResult();
+            return RedirectToAction("Index", "Home", new { page = 1, sortBy = "Name" });
         }
     }
 }
