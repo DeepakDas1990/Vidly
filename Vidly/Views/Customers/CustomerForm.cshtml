@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{ 
-    string PageHeader = Model.Customer.Id == 0 ? "New Customer" : "Existing Customer";
+    string PageHeader = Model.Customer == null ? "New Customer" : "Edit Customer";
 }
 <h2>@PageHeader</h2>
 
