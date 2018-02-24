@@ -18,7 +18,7 @@
             @foreach (var movie in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(movie.Name, "Details", "Movies", new { Id = movie.Id }, null)</td>
+                    <td>@Html.ActionLink(movie.Name, "Details", "Movies", new { Id = movie.Id }, null);
                     <td>@movie.Genre.Name</td>
                 </tr>
             }
