@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{
-    string PageHeader = Model.Movie == null ? "New Movie" : "Edit Movie";
+    string PageHeader = Model.Movie.Id == 0 ? "New Movie" : "Edit Movie";
 }
 <h2>@PageHeader</h2>
 @using (Html.BeginForm("Save", "Movies"))
