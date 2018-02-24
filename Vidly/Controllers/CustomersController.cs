@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,14 +23,14 @@ namespace Vidly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = _Context.Customers.ToList();
+            var customers = _Context.Customers.Include(c => c.MembershipType).ToList();
             return View(customers);
         }
 
         // GET: Customers/Details/1
         public ActionResult Details(int Id)
         {
-            var customer = _Context.Customers.SingleOrDefault(c => c.Id == Id);
+            var customer = _Context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == Id);
             if (customer == null)
                 return HttpNotFound();
             return View(customer);
