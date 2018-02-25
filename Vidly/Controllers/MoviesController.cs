@@ -20,17 +20,16 @@ namespace Vidly.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            _context.Dispose();    
+            _context.Dispose();
         }
 
         public ActionResult New()
         {
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel()
             {
-                Movie = new Movie(),
                 Genres = _context.Genres.ToList()
             };
-            return View("MovieForm",viewModel);
+            return View("MovieForm", viewModel);
         }
 
         [HttpPost]
@@ -40,7 +39,11 @@ namespace Vidly.Controllers
             {
                 var viewModel = new MovieFormViewModel
                 {
-                    Movie = movie,
+                    Id = movie.Id,
+                    Name = movie.Name,
+                    ReleasedDate = movie.ReleasedDate,
+                    AddedDate = movie.AddedDate,
+                    NumberInStock = movie.NumberInStock,
                     Genres = _context.Genres.ToList()
                 };
                 return View("MovieForm", viewModel);
@@ -59,7 +62,7 @@ namespace Vidly.Controllers
                 movieInDB.NumberInStock = movie.NumberInStock;
             }
             _context.SaveChanges();
-            return RedirectToAction("Index","Movies");
+            return RedirectToAction("Index", "Movies");
         }
 
         public ActionResult Edit(int Id)
@@ -69,9 +72,8 @@ namespace Vidly.Controllers
             if (movie == null)
                 return HttpNotFound();
 
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movie,
                 Genres = _context.Genres.ToList()
             };
             return View("MovieForm", viewModel);
