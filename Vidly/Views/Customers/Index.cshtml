@@ -40,15 +40,17 @@ else
         $(document).ready(function () {
             $("#customers .js-delete").on("click", function () {
                 var button = $(this);
-                if (confirm('Are You Sure You want to Delete This Customer?')) {
-                    $.ajax({
-                        url:    "/api/customers/" + button.attr("data-customer-id"),
-                        method: "DELETE",
-                        sucess: function () {
-                            button.parrents("tr").remove();
-                        }
-                    });
-                }
+                bootbox.confirm("Are You Sure You want to Delete This Customer?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/customers/" + button.attr("data-customer-id"),
+                            method: "DELETE",
+                            sucess: function () {
+                                button.parrents("tr").remove();
+                            }
+                        });
+                    }
+                });
             });
         });
     </script>
