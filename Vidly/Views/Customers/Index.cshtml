@@ -33,14 +33,14 @@
                         {
                             data: "name",
                             render: function (data, type, customer) {
-                                return "<a href='customers/edit/" + customer.Id + "'>" + customer.name + "</a>";
+                                return "<a href='customers/edit/" + customer.id + "'>" + customer.name + "</a>";
                             }
                         },
                         {
-                            data: "name"
+                            data: "membershipType.name"
                         },
                         {
-                            data: "Id",
+                            data: "id",
                             render: function (data) {
                                 return "<button data-customer-id=" + data + " class='btn-link js-delete'>Delete</button>";
                             }
