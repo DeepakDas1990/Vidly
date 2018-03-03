@@ -52,7 +52,7 @@
                 bootbox.confirm("Are You Sure You Want to Delete This Movie?", function (result) {
                     if (result) {
                         $.ajax({
-                            url: "/api/movies" / +button.attr("data-movie-id"),
+                            url: "/api/movies/" + button.attr("data-movie-id"),
                             method: "DELETE",
                             success: function () {
                                 table.row(button.parents("tr")).remove().draw();
@@ -60,7 +60,7 @@
                         });
                     }
                 });
-            })
+            });
         });
     </script>
 }
