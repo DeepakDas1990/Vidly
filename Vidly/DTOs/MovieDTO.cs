@@ -14,6 +14,8 @@ namespace Vidly.DTOs
         [Required(ErrorMessage = "Please Enter Genre")]
         public byte GenreId { get; set; }
 
+        public GenreDTO Genre { get; set; }
+
         [Required(ErrorMessage = "Please Enter Release Date")]
         public DateTime ReleasedDate { get; set; }
 
