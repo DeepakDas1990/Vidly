@@ -263,11 +263,24 @@
     <Compile Include="Migrations\201803031435385_AddDrivingLicenseToApplicationUser.Designer.cs">
       <DependentUpon>201803031435385_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803031732475_AddPhoneToApplicationUser.cs" />
+    <Compile Include="Migrations\201803031732475_AddPhoneToApplicationUser.Designer.cs">
+      <DependentUpon>201803031732475_AddPhoneToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="ViewModels\AccountViewModels\ResetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModels\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModels\ForgotViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModels\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModels\SendCodeViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModels\ExternalLoginListViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModels\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModels\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18YearsIfAMember.cs" />
@@ -277,7 +290,6 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\MovieFormViewModel.cs" />
-    <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-lumen.css" />
@@ -512,7 +524,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Movies\Random.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
@@ -578,6 +589,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803031435385_AddDrivingLicenseToApplicationUser.resx">
       <DependentUpon>201803031435385_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803031732475_AddPhoneToApplicationUser.resx">
+      <DependentUpon>201803031732475_AddPhoneToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
