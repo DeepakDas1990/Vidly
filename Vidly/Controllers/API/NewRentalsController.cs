@@ -24,17 +24,8 @@ namespace Vidly.Controllers.API
         public IHttpActionResult CreateNewRentals(NewRentalDTO newRentalDTO)
         {
             var Customer = _context.Customers.Single(m => m.Id == newRentalDTO.CustomerId);
-            if (Customer == null)
-                return BadRequest("Customer Is Not Valid");
-
-            if (newRentalDTO.MovieIds.Count == 0)
-                return BadRequest("No Movie Is Selected");
-
 
             var movies = _context.Movies.Where(m => newRentalDTO.MovieIds.Contains(m.Id)).ToList();
-
-            if (movies.Count != newRentalDTO.MovieIds.Count)
-                return BadRequest("One or More Movies Are not Valid");
 
             foreach (var movie in movies)
             {
